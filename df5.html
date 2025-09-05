@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diet Form</title>
+  <style>
+    body {
+      background: #f7fafc;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 820px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+      padding: 36px 36px 24px 36px;
+    }
+    h1 {
+      text-align: center;
+      color: #28527a;
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+    }
+    h2 {
+      color: #4b5d67;
+      margin-top: 40px;
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      border-left: 4px solid #84a9ac;
+      padding-left: 10px;
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-bottom: 20px;
+      background: #f0f4f8;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      font-size: 1rem;
+      color: #223;
+    }
+    th {
+      background: #b8d8d8;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    tr {
+      border-bottom: 1px solid #e5ecf6;
+    }
+    tr:last-child {
+      border-bottom: none;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="time"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 92%;
+      padding: 9px 10px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      border: 1px solid #b5bec6;
+      border-radius: 5px;
+      font-size: 1rem;
+      background: #f8fafc;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="time"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #319795;
+      outline: none;
+      background: #eaf6fb;
+    }
+    input[type="radio"] {
+      margin: 0 4px 0 0;
+      accent-color: #5eaaa8;
+    }
+    input[type="submit"] {
+      display: block;
+      margin: 28px auto 0 auto;
+      background: #28527a;
+      color: #f9f9f9;
+      padding: 12px 30px;
+      font-size: 1.09rem;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: background 0.22s;
+      box-shadow: 0 1px 6px rgba(21, 51, 91, 0.09);
+    }
+    input[type="submit"]:hover {
+      background: #1e3250;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 36px;
+      max-height: 110px;
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        padding: 12px;
+      }
+      th, td {
+        padding: 8px 6px;
+        font-size: 0.97rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+
+    .about {
+      margin: 32px auto 0 auto;
+      padding: 20px 20px;
+      background: #e7f8fa;
+      border-left: 5px solid #84a9ac;
+      border-radius: 8px;
+      color: #24434c;
+      font-size: 1.07rem;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+    .about h1 {
+      margin-top: 0;
+      color: #28527a;
+      font-size: 1.18rem;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Diet Form</h1>
+
+    <h2>1. Personal Information</h2>
+    <table>
+      <tr><td>Full Name:</td><td><input type="text" name="name" required></td></tr>
+      <tr><td>Age:</td><td><input type="number" name="age" required></td></tr>
+      <tr><td>Gender:</td>
+        <td>
+          <input type="radio" name="gender" value="male">Male
+          <input type="radio" name="gender" value="female">Female
+          <input type="radio" name="gender" value="other">Other
+        </td>
+      </tr>
+      <tr><td>Height (cm):</td><td><input type="number" name="height"></td></tr>
+      <tr><td>Weight (kg):</td><td><input type="number" name="weight"></td></tr>
+      <tr><td>Do you have diabetes?</td>
+        <td>
+          <input type="radio" name="diabetes" value="yes">Yes
+          <input type="radio" name="diabetes" value="no">No
+        </td>
+      </tr>
+    </table>
+
+    <h2>2. Activity & Exercise</h2>
+    <table>
+      <tr>
+        <td>Daily Activity Level:</td>
+        <td>
+          <select name="activity_level">
+            <option value="sedentary">Sedentary</option>
+            <option value="light">Light Activity</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+          </select>
+        </td>
+      </tr>
+      <tr><td>Exercise Frequency (days/week):</td><td><input type="number" name="exercise_days" min="0" max="7"></td></tr>
+      <tr><td>Type of Exercise:</td><td><input type="text" name="exercise_type" placeholder="e.g., Gym, Walking"></td></tr>
+    </table>
+
+ 
+    <h2>3. Dietary Habits</h2>
+    <table>
+      <tr><td>Vegetarian:</td>
+        <td>
+          <input type="radio" name="vegetarian" value="yes">Yes
+          <input type="radio" name="vegetarian" value="no">No
+        </td>
+      </tr>
+      <tr><td>Food Allergies:</td><td><input type="text" name="allergies" placeholder="e.g., nuts, dairy"></td></tr>
+      <tr><td>Special Diet:</td><td><input type="text" name="special_diet" placeholder="e.g., Keto, Gluten-free"></td></tr>
+      <tr><td>Water Intake (liters/day):</td><td><input type="number" name="water_intake" step="0.1"></td></tr>
+    </table>
+
+    <h2>4. Meal and Snack Tracking</h2>
+    <table>
+      <tr><th>Meal</th><th>Time</th><th>Food Items</th></tr>
+      <tr><td>Breakfast</td><td><input type="time" name="breakfast_time"></td><td><input type="text" name="breakfast_items"></td></tr>
+      <tr><td>Mid-morning Snack</td><td><input type="time" name="snack1_time"></td><td><input type="text" name="snack1_items"></td></tr>
+      <tr><td>Lunch</td><td><input type="time" name="lunch_time"></td><td><input type="text" name="lunch_items"></td></tr>
+      <tr><td>Evening Snack</td><td><input type="time" name="snack2_time"></td><td><input type="text" name="snack2_items"></td></tr>
+      <tr><td>Dinner</td><td><input type="time" name="dinner_time"></td><td><input type="text" name="dinner_items"></td></tr>
+    </table>
+
+    <h2>5. Frequency of Food & Drink Intake</h2>
+    <table>
+      <tr><th>Item</th><th>Daily</th><th>Weekly</th><th>Rarely/Never</th></tr>
+      <tr><td>Sweets</td>
+        <td><input type="radio" name="sweets" value="daily"></td>
+        <td><input type="radio" name="sweets" value="weekly"></td>
+        <td><input type="radio" name="sweets" value="rarely"></td>
+      </tr>
+      <tr><td>Soft Drinks</td>
+        <td><input type="radio" name="soft_drinks" value="daily"></td>
+        <td><input type="radio" name="soft_drinks" value="weekly"></td>
+        <td><input type="radio" name="soft_drinks" value="rarely"></td>
+      </tr>
+      <tr><td>Fried Food</td>
+        <td><input type="radio" name="fried" value="daily"></td>
+        <td><input type="radio" name="fried" value="weekly"></td>
+        <td><input type="radio" name="fried" value="rarely"></td>
+      </tr>
+      <tr><td>Vegetables</td>
+        <td><input type="radio" name="veggies" value="daily"></td>
+        <td><input type="radio" name="veggies" value="weekly"></td>
+        <td><input type="radio" name="veggies" value="rarely"></td>
+      </tr>
+    </table>
+
+
+    <h2>6. Medication & Supplements</h2>
+    <table>
+      <tr><td>Current Medication:</td><td><input type="text" name="medication" placeholder="List medications"></td></tr>
+      <tr><td>Supplements Taken:</td><td><input type="text" name="supplements" placeholder="e.g., multivitamins, whey"></td></tr>
+    </table>
+
+ 
+    <h2>7. Preferences and Goals</h2>
+    <table>
+      <tr><td>Goal:</td><td><input type="text" name="goal" placeholder="e.g., gain weight, improve energy"></td></tr>
+      <tr><td>Preferred Foods:</td><td><input type="text" name="preferred_foods"></td></tr>
+      <tr><td>Disliked Foods:</td><td><input type="text" name="disliked_foods"></td></tr>
+      <tr><td>Any other comments:</td><td><textarea name="comments" rows="3" cols="30"></textarea></td></tr>
+    </table>
+
+    <h2>Sample South Indian Diet Plan</h2>
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Breakfast</th>
+    <th>Lunch</th>
+    <th>Dinner</th>
+    <th>Snacks</th>
+  </tr>
+  <tr>
+    <td>Monday</td>
+    <td>Idli with coconut chutney</td>
+    <td>Sambar rice with papad</td>
+    <td>Ragi mudde with sambar</td>
+    <td>Banana chips</td>
+  </tr>
+  <tr>
+    <td>Tuesday</td>
+    <td>Dosa with tomato chutney</td>
+    <td>Lemon rice with vegetable curry</td>
+    <td>Curd rice with pickle</td>
+    <td>Sundal</td>
+  </tr>
+  <tr>
+    <td>Wednesday</td>
+    <td>Upma with chutney</td>
+    <td>Plain rice with rasam and vegetable poriyal</td>
+    <td>Chapati with vegetable kurma</td>
+    <td>Murukku</td>
+  </tr>
+  <tr>
+    <td>Thursday</td>
+    <td>Pongal with coconut chutney</td>
+    <td>Bisibelebath with boondi</td>
+    <td>Chapati with dal tadka</td>
+    <td>Mixture</td>
+  </tr>
+  <tr>
+    <td>Friday</td>
+    <td>Medu vada with sambar</td>
+    <td>Curd rice with carrot poriyal</td>
+    <td>Tomato rice with potato curry</td>
+    <td>Fresh fruit</td>
+  </tr>
+  <tr>
+    <td>Saturday</td>
+    <td>Pesarattu with ginger chutney</td>
+    <td>Tamarind rice with beans poriyal</td>
+    <td>Idiyappam with vegetable stew</td>
+    <td>Dry roasted peanuts</td>
+  </tr>
+  <tr>
+    <td>Sunday</td>
+    <td>Appam with coconut milk</td>
+    <td>Sambar rice with avial</td>
+    <td>Dosa with chutney</td>
+    <td>Jackfruit chips</td>
+  </tr>
+</table>
+
+
+
+    <input type="submit" value="Submit">
+  </div>
+
+
+</body>
+</html>
+
